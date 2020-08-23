@@ -7,14 +7,15 @@ A tool to export your [Ghost](https://github.com/TryGhost/Ghost) export file to 
 
 1. Export your Ghost blog through the export screen: http://ghost.domain.com/ghost/debug/
 
-1. Install this module globally so it can be used from the CLI.
+2. Setup command for development execution.
 
-  `npm install -g ghost-to-md`
+  `npm link ghost-to-md`
 
-1. Run the program, pointing it to your export file.
+3. Copy Ghost JSON file to same directory.
+
+4. Run the program, pointing it to your export file.
 
   `ghost-to-md ghost-export-file.json`
-
 
 # License
 

@@ -1,11 +1,12 @@
 ---
+layout: post
+author: [Developer]
+draft: false
 title: ${post.title}<% if (post.slug) { %>
 slug: ${post.slug}<% } %>
-date_published: ${post.publishedAt}
+date: ${post.publishedAt}
 date_updated: ${post.updatedAt}<% if (post.tags.length) { %>
-tags: ${post.tags.join(', ')}<% } %><% if (post.status === 'draft') { %>
-draft: true<% } %><% if (post.custom_excerpt) { %>
-excerpt: ${post.custom_excerpt}<% } %>
+tags: [${post.tags.join(', ')}]<% }%>
 ---
 
 ${post.markdown}

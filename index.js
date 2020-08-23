@@ -185,7 +185,7 @@ data.db[0].data.posts.forEach(function(post) {
 
   // Format the file name we're going to save.
   // Will be in the form of '2014-10-11-post-slug.md';
-  var fileName = post.formattedDate + '-' + post.slug + '.md';
+  var fileName = post.slug + '.md';
 
   // If this entry is a page then rename the file name.
   if (post.page) {
@@ -193,6 +193,14 @@ data.db[0].data.posts.forEach(function(post) {
   }
   // Currently the ghost export file does not include markdown
   post.markdown = h2m(post.html);
+
+  if(post.html.indexOf('youtube.com/') > -1){
+    console.log(fileName);
+  }
+
+  //Replace references for images:
+  post.markdown = post.markdown.replace(/\/content\/images\/[0-9]{4}\/[0-9]{1,2}\//g, 'img/');
+
   // File content.
   var fileContent = postTemplate({
     post: post
@@ -202,5 +210,5 @@ data.db[0].data.posts.forEach(function(post) {
   var filePath = path.resolve(outputDirectoryPath, fileName);
 
   // Write file.
-  fs.writeFileSync(filePath, fileContent, { encoding: 'utf8' });
+  //fs.writeFileSync(filePath, fileContent, { encoding: 'utf8' });
 });
